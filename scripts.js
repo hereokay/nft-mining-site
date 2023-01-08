@@ -63,6 +63,25 @@ const CONTRACT_ABI = [
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft_id",
+						"type": "uint256"
+					}
+				],
+				"name": "get_mine",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		];
 
@@ -291,9 +310,9 @@ const onSubmitContractRead = async (event) => {
     button.setAttribute('disabled', true);
 
     // Setup Interface + Encode Function
-    const do_mine = CONTRACT_ABI.find(i => i.name === 'do_mine');
-    const interface = new ethers.utils.Interface([do_mine]);
-    const encodedFunction = interface.encodeFunctionData(`${do_mine.name}`);
+    const get_mine = CONTRACT_ABI.find(i => i.name === 'get_mine');
+    const interface = new ethers.utils.Interface([get_mine]);
+    const encodedFunction = interface.encodeFunctionData(`${get_mine.name}`);
     console.log({ encodedFunction });
 
     // Request getGreeting
