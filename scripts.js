@@ -312,7 +312,7 @@ const onSubmitContractRead = async (event) => {
     // Setup Interface + Encode Function
     const get_mine = CONTRACT_ABI.find(i => i.name === 'get_mine');
     const interface = new ethers.utils.Interface([get_mine]);
-    const encodedFunction = interface.encodeFunctionData(`${get_mine.name}`);
+    const encodedFunction = interface.encodeFunctionData(`${get_mine.name}`,[1]);
     console.log({ encodedFunction });
 
     // Request getGreeting
